@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canal de Denuncias Éticas - Paso 1</title>
+    <!-- Tailwind CSS v4 -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-neutral-100 antialiased">
+    <div class="min-h-screen flex flex-col">
+
+        <!-- ========== HEADER (IDÉNTICO AL FRAME 1) ========== -->
+        <header class="bg-white shadow-sm sticky top-0 z-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex justify-between items-center h-16 md:h-20">
+                    <!-- Logo + Nombre -->
+                    <div class="flex items-center space-x-2">
+                        <div class="w-8 h-8 md:w-10 md:h-10 bg-primary-700 rounded-lg flex items-center justify-center">
+                            <span class="text-white font-bold text-lg md:text-xl">🛡️</span>
+                        </div>
+                        <span class="font-semibold text-neutral-900 text-sm md:text-base">
+                            Fundación <span class="text-primary-700">Ejemplo</span>
+                        </span>
+                    </div>
+                    
+                    <!-- Menú Desktop -->
+                    <nav class="hidden md:flex space-x-8">
+                        <a href="/" class="text-neutral-700 hover:text-primary-600 transition text-sm font-medium">Inicio</a>
+                        <a href="#" class="text-neutral-700 hover:text-primary-600 transition text-sm font-medium">La Fundación</a>
+                        <a href="#" class="text-neutral-700 hover:text-primary-600 transition text-sm font-medium">Transparencia</a>
+                        <a href="/formulario" class="text-primary-700 font-semibold text-sm border-b-2 border-primary-700 pb-1">Canal de Denuncias</a>
+                        <a href="#" class="text-neutral-700 hover:text-primary-600 transition text-sm font-medium">Contacto</a>
+                    </nav>
+                    
+                    <!-- Selector de idioma + menú móvil -->
+                    <div class="flex items-center space-x-3">
+                        <div class="flex items-center border border-neutral-300 rounded-md px-2 py-1 text-sm">
+                            <span class="font-medium text-neutral-800">ES</span>
+                            <span class="mx-1 text-neutral-400">|</span>
+                            <span class="text-neutral-500">EN</span>
+                        </div>
+                        <button class="md:hidden text-neutral-700 hover:text-primary-600">
+                            <i class="fas fa-bars text-xl"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- ========== CONTENIDO PRINCIPAL (FRAME 2) ========== -->
+        <main class="flex-grow py-12 md:py-16">
+            <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <!-- Barra de progreso -->
+                <div class="mb-8">
+                    <div class="flex justify-between items-center mb-2">
+                        <span class="text-sm font-medium text-primary-700">Paso 1 de 3</span>
+                        <span class="text-sm text-neutral-500">Tipo de Denuncia</span>
+                    </div>
+                    <div class="w-full bg-neutral-200 rounded-full h-2.5">
+                        <div class="bg-primary-600 h-2.5 rounded-full" style="width: 33%"></div>
+                    </div>
+                </div>
+
+                <!-- Título y descripción -->
+                <div class="mb-8">
+                    <h1 class="text-3xl md:text-4xl font-bold text-neutral-900 mb-4">Tipo de Denuncia</h1>
+                    <p class="text-neutral-600">Selecciona cómo deseas proceder con tu reporte. Toda la información está protegida.</p>
+                </div>
+
+                <!-- Card de Garantía de Confidencialidad (destacada) -->
+                <div class="bg-blue-50 border border-blue-200 rounded-xl p-6 mb-8 flex items-start gap-4">
+                    <div class="bg-blue-100 p-3 rounded-full">
+                        <i class="fas fa-shield-alt text-blue-600 text-xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-semibold text-blue-800 text-lg mb-1">🔒 Garantía de Confidencialidad</h3>
+                        <p class="text-blue-700 text-sm">
+                            Todas las denuncias son tratadas con absoluta reserva. Usted puede permanecer en el anonimato. 
+                            Estamos comprometidos con una política de cero represalias.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- FORMULARIO PASO 1: TIPO DE DENUNCIA -->
+                <form action="/paso2" method="GET" class="bg-white rounded-2xl shadow-xl p-6 md:p-8">
+                    
+                    <!-- Pregunta principal -->
+                    <div class="mb-8">
+                        <h2 class="text-xl font-semibold text-neutral-800 mb-4">¿Desea que su denuncia sea anónima?</h2>
+                        
+                        <div class="grid md:grid-cols-2 gap-4">
+                            <!-- Opción SÍ (Anónimo) -->
+                            <label class="relative border rounded-xl p-5 cursor-pointer transition hover:border-primary-400 hover:bg-primary-50 has-[:checked]:border-primary-600 has-[:checked]:bg-primary-50 has-[:checked]:ring-2 has-[:checked]:ring-primary-200">
+                                <input type="radio" name="tipo" value="anonimo" class="sr-only peer" checked>
+                                <div class="flex items-start gap-4">
+                                    <div class="bg-neutral-100 p-3 rounded-full peer-checked:bg-primary-100">
+                                        <i class="fas fa-user-secret text-2xl text-neutral-600 peer-checked:text-primary-700"></i>
+                                    </div>
+                                    <div>
+                                        <span class="font-semibold text-lg text-neutral-800">SÍ, deseo permanecer anónimo</span>
+                                        <p class="text-sm text-neutral-500 mt-1">No proporcionaré datos personales. Recibiré solo un número de caso.</p>
+                                    </div>
+                                </div>
+                                <!-- Check visible -->
+                                <div class="absolute top-4 right-4 w-5 h-5 rounded-full border-2 border-neutral-300 peer-checked:border-primary-600 peer-checked:bg-primary-600 peer-checked:border-4"></div>
+                            </label>
+
+                            <!-- Opción NO (Identificado) -->
+                            <label class="relative border rounded-xl p-5 cursor-pointer transition hover:border-primary-400 hover:bg-primary-50 has-[:checked]:border-primary-600 has-[:checked]:bg-primary-50 has-[:checked]:ring-2 has-[:checked]:ring-primary-200">
+                                <input type="radio" name="tipo" value="identificado" class="sr-only peer">
+                                <div class="flex items-start gap-4">
+                                    <div class="bg-neutral-100 p-3 rounded-full peer-checked:bg-primary-100">
+                                        <i class="fas fa-user text-2xl text-neutral-600 peer-checked:text-primary-700"></i>
+                                    </div>
+                                    <div>
+                                        <span class="font-semibold text-lg text-neutral-800">NO, me identificaré</span>
+                                        <p class="text-sm text-neutral-500 mt-1">Proporcionaré mis datos para facilitar la investigación y recibir actualizaciones.</p>
+                                    </div>
+                                </div>
+                                <!-- Check visible -->
+                                <div class="absolute top-4 right-4 w-5 h-5 rounded-full border-2 border-neutral-300 peer-checked:border-primary-600 peer-checked:bg-primary-600 peer-checked:border-4"></div>
+                            </label>
+                        </div>
+                        
+                        <!-- Nota importante (se muestra siempre) -->
+                        <div class="mt-6 bg-amber-50 border border-amber-200 rounded-lg p-4 text-sm text-amber-700 flex items-start gap-3">
+                            <i class="fas fa-exclamation-triangle text-amber-500 mt-0.5"></i>
+                            <p>
+                                <span class="font-semibold">Nota importante:</span> Si elige anónimo, no podremos contactarle para solicitar información adicional, lo que podría limitar el alcance de la investigación. En todo caso, recibirá un número de caso para seguimiento.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- SECCIÓN DE DATOS DE CONTACTO (se muestra solo si selecciona "identificado" - usando JavaScript simple) -->
+                    <div id="datosContacto" class="border-t border-neutral-200 pt-8 mt-4 hidden">
+                        <h3 class="text-lg font-semibold text-neutral-800 mb-5 flex items-center">
+                            <i class="fas fa-address-card mr-2 text-primary-600"></i>
+                            Tus Datos de Contacto
+                        </h3>
+                        
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <!-- Nombre completo -->
+                            <div class="md:col-span-2">
+                                <label for="nombre" class="block text-sm font-medium text-neutral-700 mb-1">
+                                    Nombre completo <span class="text-red-500">*</span>
+                                </label>
+                                <input type="text" id="nombre" name="nombre" 
+                                       class="w-full px-4 py-3 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition"
+                                       placeholder="Ej. María González">
+                            </div>
+                            
+                            <!-- Email -->
+                            <div>
+                                <label for="email" class="block text-sm font-medium text-neutral-700 mb-1">
+                                    Correo electrónico <span class="text-red-500">*</span>
+                                </label>
+                                <input type="email" id="email" name="email" 
+                                       class="w-full px-4 py-3 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition"
+                                       placeholder="maria@ejemplo.com">
+                            </div>
+                            
+                            <!-- Teléfono -->
+                            <div>
+                                <label for="telefono" class="block text-sm font-medium text-neutral-700 mb-1">
+                                    Teléfono <span class="text-neutral-400 font-normal">(opcional)</span>
+                                </label>
+                                <input type="tel" id="telefono" name="telefono" 
+                                       class="w-full px-4 py-3 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition"
+                                       placeholder="+569 1234 5678">
+                            </div>
+                            
+                            <!-- Departamento/Área -->
+                            <div class="md:col-span-2">
+                                <label for="departamento" class="block text-sm font-medium text-neutral-700 mb-1">
+                                    Departamento/Área <span class="text-neutral-400 font-normal">(opcional)</span>
+                                </label>
+                                <select id="departamento" name="departamento" 
+                                        class="w-full px-4 py-3 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition">
+                                    <option value="">Selecciona tu área</option>
+                                    <option value="direccion">Dirección</option>
+                                    <option value="administracion">Administración</option>
+                                    <option value="proyectos">Proyectos</option>
+                                    <option value="comunicaciones">Comunicaciones</option>
+                                    <option value="finanzas">Finanzas</option>
+                                    <option value="rrhh">Recursos Humanos</option>
+                                    <option value="operaciones">Operaciones</option>
+                                    <option value="otros">Otro</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <p class="text-xs text-neutral-500 mt-4">
+                            <i class="fas fa-info-circle mr-1"></i>
+                            Tus datos serán utilizados exclusivamente para la investigación y seguimiento de esta denuncia.
+                        </p>
+                    </div>
+
+                    <!-- BOTONES DE NAVEGACIÓN -->
+                    <div class="flex flex-col sm:flex-row justify-between gap-4 mt-8 pt-4 border-t border-neutral-200">
+                        <a href="/" class="px-8 py-3 border border-neutral-300 text-neutral-700 font-medium rounded-lg hover:bg-neutral-50 transition text-center">
+                            <i class="fas fa-arrow-left mr-2"></i>
+                            VOLVER AL INICIO
+                        </a>
+                        <button type="submit" class="bg-primary-600 hover:bg-primary-700 text-white font-semibold px-8 py-3 rounded-lg shadow-lg hover:shadow-xl transition transform hover:-translate-y-1 text-center">
+                            CONTINUAR CON LOS DETALLES
+                            <i class="fas fa-arrow-right ml-2"></i>
+                        </button>
+                    </div>
+                </form>
+
+                <!-- Texto de ayuda adicional -->
+                <p class="text-xs text-center text-neutral-500 mt-6">
+                    <i class="fas fa-lock mr-1"></i>
+                    Todos los datos se transmiten de forma segura (HTTPS) y se almacenan con cifrado AES-256.
+                </p>
+            </div>
+        </main>
+
+        <!-- ========== FOOTER (IDÉNTICO AL FRAME 1) ========== -->
+        <footer class="bg-neutral-900 text-neutral-300 py-12">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                    <!-- Columna 1: Logo + descripción -->
+                    <div class="col-span-1 md:col-span-2">
+                        <div class="flex items-center space-x-2 mb-4">
+                            <div class="w-8 h-8 bg-primary-700 rounded-lg flex items-center justify-center">
+                                <span class="text-white font-bold">🛡️</span>
+                            </div>
+                            <span class="font-semibold text-white">Fundación Ejemplo</span>
+                        </div>
+                        <p class="text-sm text-neutral-400 max-w-md">
+                            Comprometidos con la transparencia, la ética y la integridad en todas nuestras operaciones.
+                        </p>
+                    </div>
+                    
+                    <!-- Columna 2: Enlaces legales -->
+                    <div>
+                        <h4 class="text-white font-semibold mb-4">Legal</h4>
+                        <ul class="space-y-2 text-sm">
+                            <li><a href="#" class="hover:text-primary-400 transition">Aviso de Privacidad</a></li>
+                            <li><a href="#" class="hover:text-primary-400 transition">Términos y Condiciones</a></li>
+                            <li><a href="#" class="hover:text-primary-400 transition">Política de Cookies</a></li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Columna 3: Contacto -->
+                    <div>
+                        <h4 class="text-white font-semibold mb-4">Contacto</h4>
+                        <ul class="space-y-2 text-sm">
+                            <li><i class="fas fa-envelope mr-2 w-4 text-primary-400"></i> etica@fundacion.org</li>
+                            <li><i class="fas fa-phone mr-2 w-4 text-primary-400"></i> +34 900 123 456</li>
+                            <li><i class="fas fa-map-marker-alt mr-2 w-4 text-primary-400"></i> Madrid, España</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Línea divisoria y copyright -->
+                <div class="border-t border-neutral-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center text-sm">
+                    <p>© 2026 Fundación Ejemplo. Todos los derechos reservados.</p>
+                    <div class="flex space-x-4 mt-4 md:mt-0">
+                        <a href="#" class="hover:text-primary-400"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="hover:text-primary-400"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="hover:text-primary-400"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Script para mostrar/ocultar datos de contacto según selección -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const radios = document.querySelectorAll('input[name="tipo"]');
+            const datosContacto = document.getElementById('datosContacto');
+            
+            function toggleDatosContacto() {
+                const seleccionado = document.querySelector('input[name="tipo"]:checked');
+                if (seleccionado && seleccionado.value === 'identificado') {
+                    datosContacto.classList.remove('hidden');
+                    // Agregar atributos required a campos de contacto
+                    document.getElementById('nombre').required = true;
+                    document.getElementById('email').required = true;
+                } else {
+                    datosContacto.classList.add('hidden');
+                    // Quitar required
+                    document.getElementById('nombre').required = false;
+                    document.getElementById('email').required = false;
+                }
+            }
+            
+            // Ejecutar al cargar (por si hay uno preseleccionado)
+            toggleDatosContacto();
+            
+            // Escuchar cambios
+            radios.forEach(radio => {
+                radio.addEventListener('change', toggleDatosContacto);
+            });
+        });
+    </script>
+</body>
+</html>
