@@ -59,11 +59,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt->bind_param("ssssssssi", $tipo_incidente, $frecuencia, $involucrados, $area_implicado, $fecha_incidente, $ubicacion, $descripcion, $codigo_caso, $id_registro);
 
     if ($stmt->execute()) {
-        // Destruimos la sesión para que no se dupliquen datos si recarga
+        // NUEVA LÓGICA DE CORREO:
+        // Primero obtenemos el email que se guardó en el paso 1
+        $id_denuncia = $_SESSION['id_denuncia'];
+        $check_mail = $conexion->query("SELECT denunciante_email FROM denuncias WHERE id = $id_denuncia");
+        $user_data = $check_mail->fetch_assoc();
+
+        if (!empty($user_data['denunciante_email'])) {
+            require_once __DIR__ . '/../includes/mail_config.php';
+            enviarCorreoConfirmacion($user_data['denunciante_email'], $codigo_caso);
+        }
+
+        $codigo_final = $codigo_caso;
         session_destroy();
-        // Redirigir a una página de éxito
-        header("Location: ../templates/frame_exito.php?caso=" . $codigo_caso);
-    } else {
-        echo "Error al actualizar: " . $conexion->error;
+        header("Location: ../templates/frame_exito.php?caso=" . $codigo_final);
     }
 }

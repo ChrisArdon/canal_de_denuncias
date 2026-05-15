@@ -16,7 +16,8 @@ if (!$denuncia) {
 }
 
 // Función para determinar la fase visual según el estado de la DB
-function determinarFase($estado_db) {
+function determinarFase($estado_db)
+{
     $fases = [
         'Pendiente' => 1,
         'En Revision' => 2,
@@ -32,6 +33,7 @@ $fase_actual = determinarFase($denuncia['estado']);
 
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -39,28 +41,60 @@ $fase_actual = determinarFase($denuncia['estado']);
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        :root { --brand-blue: #007A99; --brand-yellow: #FEC221; }
-        .bg-brand-blue { background-color: var(--brand-blue); }
-        .text-brand-blue { color: var(--brand-blue); }
+        :root {
+            --brand-blue: #007A99;
+            --brand-yellow: #FEC221;
+        }
+
+        .bg-brand-blue {
+            background-color: var(--brand-blue);
+        }
+
+        .text-brand-blue {
+            color: var(--brand-blue);
+        }
     </style>
 </head>
+
 <body class="bg-neutral-100 min-h-screen flex flex-col">
 
     <header class="bg-white shadow-sm sticky top-0 z-50">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-16">
-          <div class="flex items-center space-x-2">
-            <a href="seguimiento.php" class="text-neutral-500 hover:text-brand-blue transition mr-4"><i class="fas fa-arrow-left"></i></a>
-            <span class="font-bold text-neutral-900">Estado de la Denuncia</span>
-          </div>
-          <div class="text-xs font-mono text-neutral-400 bg-neutral-50 px-3 py-1 rounded-full border border-neutral-200">
-            REF: <?php echo htmlspecialchars($codigo); ?>
-          </div>
-      </div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16 md:h-20">
+                <div class="flex items-center">
+                    <a href="../index.php" class="flex items-center">
+                        <img
+                            src="../assets/logo_fundemas.png"
+                            alt="Logo FUNDEMAS"
+                            class="h-10 md:h-14 w-auto object-contain" />
+                    </a>
+                </div>
+
+                <nav class="hidden md:flex space-x-8">
+                    <a href="https://fundemas.org/" class="text-neutral-700 hover:text-brand-blue transition text-sm font-medium">Inicio</a>
+                    <a href="https://fundemas.org/quienes-somos/" class="text-neutral-700 hover:text-brand-blue transition text-sm font-medium">La Fundación</a>
+                    <!-- <a href="#" class="text-neutral-700 hover:text-brand-blue transition text-sm font-medium">Transparencia</a> -->
+                    <a href="#" class="text-brand-blue font-semibold text-sm border-b-2 border-brand-blue pb-1">Canal de Denuncias</a>
+                    <a href="https://fundemas.org/contacto/" class="text-neutral-700 hover:text-brand-blue transition text-sm font-medium">Contacto</a>
+                </nav>
+
+                <div class="flex items-center space-x-3">
+                    <!-- <div class="flex items-center border border-neutral-300 rounded-md px-2 py-1 text-sm">
+              <span class="font-medium text-neutral-800">ES</span>
+              <span class="mx-1 text-neutral-400">|</span>
+              <span class="text-neutral-500">EN</span>
+            </div> -->
+                    <button class="md:hidden text-neutral-700 hover:text-brand-blue">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
     </header>
 
     <main class="flex-grow p-6">
         <div class="max-w-3xl mx-auto space-y-6">
-            
+
             <div class="bg-white shadow-xl rounded-2xl overflow-hidden border border-neutral-200">
                 <div class="bg-brand-blue p-6 text-white flex justify-between items-center">
                     <div>
@@ -74,12 +108,12 @@ $fase_actual = determinarFase($denuncia['estado']);
 
                 <div class="p-8">
                     <?php if (!empty($denuncia['comentario_publico'])): ?>
-                    <div class="mb-8 bg-blue-50 border-l-4 border-brand-blue p-6 rounded-r-xl">
-                        <h3 class="text-brand-blue font-bold text-xs uppercase mb-2">Mensaje del Comité de Ética:</h3>
-                        <p class="text-slate-700 text-sm italic leading-relaxed">
-                            "<?php echo htmlspecialchars($denuncia['comentario_publico']); ?>"
-                        </p>
-                    </div>
+                        <div class="mb-8 bg-blue-50 border-l-4 border-brand-blue p-6 rounded-r-xl">
+                            <h3 class="text-brand-blue font-bold text-xs uppercase mb-2">Mensaje del Comité de Ética:</h3>
+                            <p class="text-slate-700 text-sm italic leading-relaxed">
+                                "<?php echo htmlspecialchars($denuncia['comentario_publico']); ?>"
+                            </p>
+                        </div>
                     <?php endif; ?>
 
                     <div class="relative space-y-12">
@@ -136,8 +170,78 @@ $fase_actual = determinarFase($denuncia['estado']);
         </div>
     </main>
 
-    <footer class="p-6 text-center text-[10px] text-neutral-400 uppercase tracking-widest font-medium">
-        Fundación para la Sostenibilidad • Canal Ético
+    <footer class="bg-neutral-900 text-neutral-300 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="col-span-1 md:col-span-2">
+                    <div class="flex items-center mb-6">
+                        <img
+                            src="../assets/logo_fundemas.png"
+                            alt="Logo FUNDEMAS"
+                            class="h-12 w-auto brightness-0 invert" />
+                    </div>
+                    <p class="text-sm text-neutral-400 max-w-md leading-relaxed">
+                        Fundación Empresarial para la Acción Social. Comprometidos con la transparencia, la ética y la integridad en todas nuestras operaciones para sumar al desarrollo sostenible.
+                    </p>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-semibold mb-4 border-b border-neutral-800 pb-2">Legal</h4>
+                    <ul class="space-y-3 text-sm">
+                        <li>
+                            <a href="https://fundemas.org/politicasdeprivacidad/" target="_blank" class="hover:text-brand-yellow transition flex items-center">
+                                <i class="fas fa-chevron-right text-[10px] mr-2 opacity-50"></i> Aviso de Privacidad
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://fundemas.org/wp-content/uploads/2026/02/codigo-de-Etica_-FUNDEMAS-2026-.pdf" target="_blank" class="hover:text-brand-yellow transition flex items-center">
+                                <i class="fas fa-chevron-right text-[10px] mr-2 opacity-50"></i> Código de Ética
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://fundemas.org/wp-content/uploads/2026/02/P-RH-006-Politica-de-Salvaguardia-2026-.pdf" target="_blank" class="hover:text-brand-yellow transition flex items-center">
+                                <i class="fas fa-chevron-right text-[10px] mr-2 opacity-50"></i> Política de Salvaguardia
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-semibold mb-4 border-b border-neutral-800 pb-2">Contacto</h4>
+                    <ul class="space-y-3 text-sm">
+                        <li class="flex items-start italic">
+                            <i class="fas fa-envelope mr-3 mt-1 text-brand-yellow"></i>
+                            <span>integridad@fundemas.org</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-phone-alt mr-3 mt-1 text-brand-yellow"></i>
+                            <span>PBX: (503) 2212 - 1799<br><span class="text-xs opacity-60">Fax: (503) 2212 - 1798</span></span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt mr-3 mt-1 text-brand-yellow"></i>
+                            <span class="text-xs">Edificio FEPADE, primer nivel, Calle el Pedregal, Antiguo Cuscatlán.</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-neutral-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center text-xs tracking-wide">
+                <p class="uppercase font-medium">© 2026 <span class="text-brand-yellow">FUNDEMAS</span>. Todos los derechos reservados.</p>
+
+                <div class="flex space-x-6 mt-6 md:mt-0">
+                    <a href="https://www.facebook.com/fundemas/" class="text-neutral-400 hover:text-white transition text-lg" title="Facebook">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="https://www.instagram.com/fundemassv/" class="text-neutral-400 hover:text-white transition text-lg" title="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" class="text-neutral-400 hover:text-white transition text-lg" title="X (Twitter)">
+                        <i class="fab fa-x-twitter"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
     </footer>
 </body>
+
 </html>
