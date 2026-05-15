@@ -85,6 +85,37 @@
     a[href="/formulario"] {
       transition: all 0.3s ease;
     }
+
+    /*Colores FUNDEMAS*/
+    :root {
+      --brand-blue: #007A99;
+      --brand-yellow: #FEC221;
+    }
+
+    .bg-brand-blue {
+      background-color: var(--brand-blue);
+    }
+
+    .text-brand-blue {
+      color: var(--brand-blue);
+    }
+
+    .bg-brand-yellow {
+      background-color: var(--brand-yellow);
+    }
+
+    .text-brand-yellow {
+      color: var(--brand-yellow);
+    }
+
+    /* Bordes y estados hover */
+    .border-brand-blue {
+      border-color: var(--brand-blue);
+    }
+
+    .hover\:bg-brand-blue-dark:hover {
+      background-color: #006680;
+    }
   </style>
 </head>
 
@@ -95,46 +126,30 @@
     <header class="bg-white shadow-sm sticky top-0 z-50">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between items-center h-16 md:h-20">
-          <!-- Logo + Nombre -->
-          <div class="flex items-center space-x-2">
-            <div
-              class="w-8 h-8 md:w-10 md:h-10 bg-primary-700 rounded-lg flex items-center justify-center">
-              <span class="text-white font-bold text-lg md:text-xl">🛡️</span>
-            </div>
-            <span class="font-semibold text-neutral-900 text-sm md:text-base">
-              FUNDEMAS <span class="text-primary-700"></span>
-            </span>
+          <div class="flex items-center">
+            <a href="index.php" class="flex items-center">
+              <img
+                src="assets/logo_fundemas.png"
+                alt="Logo FUNDEMAS"
+                class="h-10 md:h-14 w-auto object-contain" />
+            </a>
           </div>
 
-          <!-- Menú Desktop (oculto en móvil) -->
           <nav class="hidden md:flex space-x-8">
-            <a
-              href="#"
-              class="text-neutral-700 hover:text-primary-600 transition text-sm font-medium">Inicio</a>
-            <a
-              href="#"
-              class="text-neutral-700 hover:text-primary-600 transition text-sm font-medium">La Fundación</a>
-            <a
-              href="#"
-              class="text-neutral-700 hover:text-primary-600 transition text-sm font-medium">Transparencia</a>
-            <a
-              href="#"
-              class="text-primary-700 font-semibold text-sm border-b-2 border-primary-700 pb-1">Canal de Denuncias</a>
-            <a
-              href="#"
-              class="text-neutral-700 hover:text-primary-600 transition text-sm font-medium">Contacto</a>
+            <a href="#" class="text-neutral-700 hover:text-brand-blue transition text-sm font-medium">Inicio</a>
+            <a href="#" class="text-neutral-700 hover:text-brand-blue transition text-sm font-medium">La Fundación</a>
+            <a href="#" class="text-neutral-700 hover:text-brand-blue transition text-sm font-medium">Transparencia</a>
+            <a href="#" class="text-brand-blue font-semibold text-sm border-b-2 border-brand-blue pb-1">Canal de Denuncias</a>
+            <a href="#" class="text-neutral-700 hover:text-brand-blue transition text-sm font-medium">Contacto</a>
           </nav>
 
-          <!-- Selector de idioma + menú móvil -->
           <div class="flex items-center space-x-3">
-            <div
-              class="flex items-center border border-neutral-300 rounded-md px-2 py-1 text-sm">
+            <div class="flex items-center border border-neutral-300 rounded-md px-2 py-1 text-sm">
               <span class="font-medium text-neutral-800">ES</span>
               <span class="mx-1 text-neutral-400">|</span>
               <span class="text-neutral-500">EN</span>
             </div>
-            <!-- Botón menú móvil -->
-            <button class="md:hidden text-neutral-700 hover:text-primary-600">
+            <button class="md:hidden text-neutral-700 hover:text-brand-blue">
               <i class="fas fa-bars text-xl"></i>
             </button>
           </div>
@@ -226,13 +241,13 @@
               <div class="flex flex-col sm:flex-row gap-4 pt-4">
                 <a
                   href="templates/frame2_tipo_denuncia.php"
-                  class="bg-red-500 hover:bg-accent-600 text-white font-semibold px-8 py-4 rounded-lg shadow-lg hover:shadow-xl transition transform hover:-translate-y-1 text-center vibrating">
+                  class="bg-brand-yellow hover:bg-accent-600 text-neutral-900 font-semibold px-8 py-4 rounded-lg shadow-lg hover:shadow-xl transition transform hover:-translate-y-1 text-center vibrating">
                   <i class="fas fa-pen mr-2"></i>
                   HACER UNA DENUNCIA
                 </a>
                 <a
-                  href="/seguimiento"
-                  class="bg-red-500 bg-opacity-30 hover:bg-opacity-30 backdrop-blur-sm text-white font-semibold px-8 py-4 rounded-lg border border-white border-opacity-30 transition text-center">
+                  href="templates/seguimiento.php"
+                  class="bg-brand-blue bg-opacity-20 hover:bg-opacity-30 backdrop-blur-sm text-white font-semibold px-8 py-4 rounded-lg border border-white border-opacity-30 transition text-center">
                   <i class="fas fa-search mr-2"></i>
                   SEGUIMIENTO DE CASO
                 </a>
@@ -463,7 +478,7 @@
             <ul class="space-y-2 text-sm">
               <li>
                 <i class="fas fa-envelope mr-2 w-4 text-primary-400"></i>
-                etica@fundacion.org
+                integridad@fundemas.org
               </li>
               <li>
                 <i class="fas fa-phone mr-2 w-4 text-primary-400"></i> +34 900

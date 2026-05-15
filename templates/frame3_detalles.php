@@ -15,6 +15,37 @@
         body {
             font-family: 'Inter', sans-serif;
         }
+
+        :root {
+            --brand-blue: #007A99;
+            --brand-yellow: #FEC221;
+        }
+
+        /* Clases de utilidad personalizadas */
+        .bg-brand-blue {
+            background-color: var(--brand-blue);
+        }
+
+        .text-brand-blue {
+            color: var(--brand-blue);
+        }
+
+        .bg-brand-yellow {
+            background-color: var(--brand-yellow);
+        }
+
+        .text-brand-yellow {
+            color: var(--brand-yellow);
+        }
+
+        /* Bordes y estados hover */
+        .border-brand-blue {
+            border-color: var(--brand-blue);
+        }
+
+        .hover\:bg-brand-blue-dark:hover {
+            background-color: #006680;
+        }
     </style>
 </head>
 
@@ -204,7 +235,7 @@
                             <i class="fas fa-arrow-left mr-2"></i>
                             PASO ANTERIOR
                         </a>
-                        <button type="submit" class="bg-primary-600 hover:bg-primary-700 text-white font-semibold px-8 py-3 rounded-lg shadow-lg hover:shadow-xl transition transform hover:-translate-y-1 text-center">
+                        <button type="submit" class="bg-brand-yellow hover:bg-primary-700 text-white font-semibold px-8 py-3 rounded-lg shadow-lg hover:shadow-xl transition transform hover:-translate-y-1 text-center">
                             CONTINUAR A VERIFICACIÓN
                             <i class="fas fa-arrow-right ml-2"></i>
                         </button>

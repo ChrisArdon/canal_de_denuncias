@@ -14,6 +14,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // 1. Captura de datos
     $tipo_incidente  = $_POST['tipo_incidente'] ?? '';
+    $frecuencia = $_POST['frecuencia'] ?? '';
     $involucrados    = $_POST['involucrados'] ?? '';
     $area_implicado  = $_POST['area_implicado'] ?? '';
     $fecha_incidente = $_POST['fecha_incidente'] ?? null;
@@ -43,7 +44,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // 3. Actualizar la base de datos
     $sql = "UPDATE denuncias SET
-            tipo_incidente = ?, 
+            tipo_incidente = ?,
+            frecuencia = ?, 
             implicados_nombres = ?, 
             implicados_area = ?, 
             fecha_incidente_estimada = ?, 
@@ -54,7 +56,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $stmt = $conexion->prepare($sql);
     // Usamos el código de caso como drive_folder_id temporalmente
-    $stmt->bind_param("sssssssi", $tipo_incidente, $involucrados, $area_implicado, $fecha_incidente, $ubicacion, $descripcion, $codigo_caso, $id_registro);
+    $stmt->bind_param("ssssssssi", $tipo_incidente, $frecuencia, $involucrados, $area_implicado, $fecha_incidente, $ubicacion, $descripcion, $codigo_caso, $id_registro);
 
     if ($stmt->execute()) {
         // Destruimos la sesión para que no se dupliquen datos si recarga

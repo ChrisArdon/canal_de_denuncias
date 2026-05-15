@@ -37,6 +37,36 @@ function enmascararEmail($email)
         body {
             font-family: "Inter", sans-serif;
         }
+
+        :root {
+            --brand-blue: #007A99;
+            --brand-yellow: #FEC221;
+        }
+
+        .bg-brand-blue {
+            background-color: var(--brand-blue);
+        }
+
+        .text-brand-blue {
+            color: var(--brand-blue);
+        }
+
+        .bg-brand-yellow {
+            background-color: var(--brand-yellow);
+        }
+
+        .text-brand-yellow {
+            color: var(--brand-yellow);
+        }
+
+        /* Bordes y estados hover */
+        .border-brand-blue {
+            border-color: var(--brand-blue);
+        }
+
+        .hover\:bg-brand-blue-dark:hover {
+            background-color: #006680;
+        }
     </style>
 </head>
 
@@ -119,7 +149,7 @@ function enmascararEmail($email)
                 <?php endif; ?>
 
                 <div class="pt-6 border-t border-neutral-100 text-center">
-                    <a href="../index.php" class="inline-flex items-center justify-center w-full bg-blue-700 text-white py-4 rounded-xl font-bold hover:bg-blue-800 transition-all shadow-lg hover:shadow-blue-200 uppercase tracking-wider">
+                    <a href="seguimiento.php?caso=<?php echo urlencode($codigo_caso); ?>" class="inline-flex items-center justify-center w-full bg-brand-blue text-white py-4 rounded-xl font-bold hover:bg-blue-800 transition-all shadow-lg hover:shadow-blue-200 uppercase tracking-wider">
                         Ir al Seguimiento de Caso <i class="fas fa-arrow-right ml-2"></i>
                     </a>
                 </div>
