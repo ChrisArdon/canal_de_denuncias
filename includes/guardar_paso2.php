@@ -59,19 +59,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt->bind_param("ssssssssi", $tipo_incidente, $frecuencia, $involucrados, $area_implicado, $fecha_incidente, $ubicacion, $descripcion, $codigo_caso, $id_registro);
 
     if ($stmt->execute()) {
-        // NUEVA LÓGICA DE CORREO:
-        // Primero obtenemos el email que se guardó en el paso 1
-        $id_denuncia = $_SESSION['id_denuncia'];
-        $check_mail = $conexion->query("SELECT denunciante_email FROM denuncias WHERE id = $id_denuncia");
-        $user_data = $check_mail->fetch_assoc();
+        // 1. Obtener el email del registro actual
+        $id_denuncia_actual = $_SESSION['id_denuncia'];
+        $check_mail = $conexion->prepare("SELECT denunciante_email FROM denuncias WHERE id = ?");
+        $check_mail->bind_param("i", $id_denuncia_actual);
+        $check_mail->execute();
+        $resultado_db = $check_mail->get_result()->fetch_assoc();
 
-        if (!empty($user_data['denunciante_email'])) {
-            require_once __DIR__ . '/../includes/mail_config.php';
-            enviarCorreoConfirmacion($user_data['denunciante_email'], $codigo_caso);
+        $email_destino = $resultado_db['denunciante_email'] ?? '';
+
+        // 2. Lógica de envío si el email no está vacío
+        if (!empty($email_destino)) {
+            require_once __DIR__ . '/mail_config.php';
+            enviarCorreoConfirmacion($email_destino, $codigo_caso);
         }
 
         $codigo_final = $codigo_caso;
         session_destroy();
-        header("Location: ../templates/frame_exito.php?caso=" . $codigo_final);
+        header("Location: ../templates/frame_exito.php?caso=" . urlencode($codigo_final));
+        exit();
     }
 }

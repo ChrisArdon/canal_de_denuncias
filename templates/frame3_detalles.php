@@ -57,7 +57,7 @@
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex justify-between items-center h-16 md:h-20">
                     <div class="flex items-center">
-                        <a href="index.php" class="flex items-center">
+                        <a href="../index.php" class="flex items-center">
                             <img
                                 src="../assets/logo_fundemas.png"
                                 alt="Logo FUNDEMAS"
@@ -231,7 +231,7 @@
 
                     <!-- 8. Botones de navegación -->
                     <div class="flex flex-col sm:flex-row justify-between gap-4 pt-4 border-t border-neutral-200">
-                        <a href="/formulario" class="px-8 py-3 border border-neutral-300 text-neutral-700 font-medium rounded-lg hover:bg-neutral-50 transition text-center">
+                        <a href="../templates/frame2_tipo_denuncia.php" class="px-8 py-3 border border-neutral-300 text-neutral-700 font-medium rounded-lg hover:bg-neutral-50 transition text-center">
                             <i class="fas fa-arrow-left mr-2"></i>
                             PASO ANTERIOR
                         </a>
