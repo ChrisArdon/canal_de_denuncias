@@ -5,6 +5,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Canal de Denuncias Éticas</title>
+  <link rel="icon" href="assets/cropped-Favicon_Fundemas-32x32-1.png" type="image/x-icon" />
+  <link rel="shortcut icon" href="assets/cropped-Favicon_Fundemas-32x32-1.png" type="image/x-icon" />
   <!-- Tailwind CSS v4 (CDN para desarrollo rápido) -->
   <script src="https://cdn.tailwindcss.com"></script>
 
@@ -116,6 +118,18 @@
     .hover\:bg-brand-blue-dark:hover {
       background-color: #006680;
     }
+
+    /* Nuevo degradado institucional con profundidad */
+    .bg-gradient-fundemas {
+      background: radial-gradient(circle at top right, #008eb3, #007A99, #004d61);
+      position: relative;
+    }
+
+    /* Opcional: Agregar un patrón sutil de puntos para textura */
+    .bg-pattern {
+      background-image: radial-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+      background-size: 30px 30px;
+    }
   </style>
 </head>
 
@@ -160,36 +174,26 @@
     <!-- ========== HERO SECTION ========== -->
     <main class="flex-grow">
       <!-- Imagen de fondo -->
-      <div class="relative py-12 md:py-20 overflow-hidden">
-        <div class="absolute inset-0 z-0">
-          <img
-            src="https://images.unsplash.com/photo-1591453214154-c95db71dbd83?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-            alt="Oficina moderna"
-            class="w-full h-full object-cover" />
-          <!-- Overlay oscuro para mejorar contraste del texto -->
-          <div
-            class="absolute inset-0 bg-gradient-to-r from-primary-900/95 to-primary-800/80"></div>
-        </div>
+      <div class="relative py-12 md:py-24 overflow-hidden bg-gradient-fundemas">
+        <div class="absolute inset-0 z-0 bg-pattern opacity-30"></div>
+
+        <div class="absolute -top-24 -left-24 w-96 h-96 bg-brand-yellow opacity-10 rounded-full blur-3xl"></div>
 
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div class="grid md:grid-cols-2 gap-8 items-center">
-            <!-- Columna izquierda: texto y CTA -->
+          <div class="grid md:grid-cols-2 gap-12 items-center">
             <div class="space-y-6">
-              <div
-                class="inline-flex items-center bg-primary-800 bg-opacity-40 backdrop-blur-sm px-4 py-2 rounded-full">
-                <i class="fas fa-shield-alt mr-2 text-red-300"></i>
-                <span class="text-sm font-medium">Compromiso con la Integridad</span>
+              <div class="inline-flex items-center bg-white/10 backdrop-blur-md px-4 py-2 rounded-full border border-white/20">
+                <i class="fas fa-shield-alt mr-2 text-brand-yellow"></i>
+                <span class="text-sm font-medium text-white">Compromiso con la Integridad</span>
               </div>
 
-              <h1
-                class="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
-                Canal de Denuncias<br />y Ética
+              <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight text-white">
+                Canal de Denuncias<br /><span class="text-brand-yellow">y Ética</span>
               </h1>
 
-              <p class="text-gray-200 text-lg md:text-xl max-w-lg">
-                Este espacio está diseñado para reportar de forma segura y
-                confidencial cualquier conducta contraria a nuestro Código de
-                Ética.
+
+              <p class="text-blue-50 text-lg md:xl max-w-lg leading-relaxed">
+                Un espacio seguro, anónimo y confiable para reportar conductas contrarias a nuestros valores institucionales.
               </p>
 
               <!-- Cuadro 1: Integridad -->
@@ -238,18 +242,16 @@
               </div>
 
               <!-- Botones CTA -->
-              <div class="flex flex-col sm:flex-row gap-4 pt-4">
-                <a
-                  href="templates/frame2_tipo_denuncia.php"
-                  class="bg-brand-yellow hover:bg-accent-600 text-neutral-900 font-semibold px-8 py-4 rounded-lg shadow-lg hover:shadow-xl transition transform hover:-translate-y-1 text-center vibrating">
+              <div class="flex flex-col sm:flex-row gap-4 pt-6">
+                <a href="templates/frame2_tipo_denuncia.php"
+                  class="bg-brand-yellow hover:bg-yellow-400 text-neutral-900 font-bold px-8 py-4 rounded-xl shadow-lg hover:shadow-yellow-500/20 transition transform hover:-translate-y-1 text-center uppercase tracking-wider">
                   <i class="fas fa-pen mr-2"></i>
-                  HACER UNA DENUNCIA
+                  Hacer una denuncia
                 </a>
-                <a
-                  href="templates/seguimiento.php"
-                  class="bg-brand-blue bg-opacity-20 hover:bg-opacity-30 backdrop-blur-sm text-white font-semibold px-8 py-4 rounded-lg border border-white border-opacity-30 transition text-center">
+                <a href="templates/seguimiento.php"
+                  class="bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white font-bold px-8 py-4 rounded-xl border border-white/30 transition text-center uppercase tracking-wider">
                   <i class="fas fa-search mr-2"></i>
-                  SEGUIMIENTO DE CASO
+                  Seguimiento
                 </a>
               </div>
 
@@ -267,15 +269,12 @@
             <!-- Columna derecha: imagen ilustrativa (opcional) -->
             <div class="hidden md:flex justify-center">
               <div class="relative">
-                <div
-                  class="w-80 h-80 bg-primary-600 rounded-full opacity-20 absolute -top-10 -right-10 blur-3xl"></div>
-                <div
-                  class="relative bg-white bg-opacity-10 backdrop-blur-md p-8 rounded-2xl border border-white border-opacity-20">
-                  <i
-                    class="fas fa-file-signature text-8xl text-white opacity-80"></i>
-                  <div
-                    class="absolute -bottom-4 -right-4 bg-accent-500 rounded-full p-4">
-                    <i class="fas fa-shield text-white text-2xl"></i>
+                <div class="w-72 h-72 bg-white/5 rounded-full flex items-center justify-center border border-white/10 animate-pulse">
+                  <i class="fas fa-balance-scale text-9xl text-white/20"></i>
+                </div>
+                <div class="absolute inset-0 flex items-center justify-center">
+                  <div class="bg-white p-8 rounded-3xl shadow-2xl transform rotate-3 hover:rotate-0 transition-transform duration-500">
+                    <i class="fas fa-user-shield text-7xl text-brand-blue"></i>
                   </div>
                 </div>
               </div>
@@ -514,9 +513,9 @@
 
   <!-- Script para menú móvil (básico) -->
   <script>
-    // Aquí puedes agregar funcionalidad para el menú hamburguesa
-    // Por ahora solo es visual
+    // Aquí se puede agregar funcionalidad para el menú hamburguesa
   </script>
 </body>
 
 </html>
+<!-- Chris Ardon était ici 20260515 -->

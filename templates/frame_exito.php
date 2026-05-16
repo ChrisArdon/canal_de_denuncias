@@ -76,7 +76,7 @@ function enmascararEmail($email)
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16 md:h-20">
                 <div class="flex items-center">
-                    <a href="index.php" class="flex items-center">
+                    <a href="../index.php" class="flex items-center">
                         <img
                             src="../assets/logo_fundemas.png"
                             alt="Logo FUNDEMAS"
